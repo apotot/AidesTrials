@@ -18,5 +18,12 @@ cenAfrica<-read.csv(file="central_africa_aides.csv",header=TRUE)
 
 Three new preventative aides drugs were tested in clinical trials in 2015. The trial designs were modeled after the famous RV_144 Aides Trials in Thailand in 2009.  Analyze and report on the apparent effectiveness of the three different drugs. Does sex of the participant seem to be a factor for any of the drugs?Which if any drug would you recommend or tell to avoid for a 32 year old female?  How about a 27 year old male?
 
+#Methods
+
+This study was based on the famous RV_144 Aides Trial in Thailand in 2009. We will use the same technique as we work on this project.We will also use a different test using bartcharts, rowPerc and chisqtestGc on our graphical, numerical, and Inferential resultsn to compare the results of each trial, i.e. the result on drugs to [1] everyone [2]on female [3]male.
+We will show and explain each result on every trials(drugs,vaccine,placebo).Basically,we will show 3 results in each variable.
+
+
+
 
 
