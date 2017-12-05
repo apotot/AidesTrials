@@ -23,7 +23,44 @@ Three new preventative aides drugs were tested in clinical trials in 2015. The t
 This study was based on the famous RV_144 Aides Trial in Thailand in 2009. We will use the same technique as we work on this project.We will also use a different test using bartcharts, rowPerc and chisqtestGc on our graphical, numerical, and Inferential resultsn to compare the results of each trial, i.e. the result on drugs to [1] everyone [2]on female [3]male.
 We will show and explain each result on every trials(drugs,vaccine,placebo).Basically,we will show 3 results in each variable.
 
+#Results
+
+#Graphical Results
+
+```{r}
+contTable<- xtabs(~infected + group, data = Scarolina)
+barchart(contTable,
+           auto.key = list(
+             space = "top",
+             title = "male",
+             cex.title = 1,
+             coulumns = 1),
+           stack = FALSE, horizontal = FALSE)
+             
+```
+
+Base on the chart, it is shown that there are more people of south Carolina who are non-infected are taking drugs and placebo. It looks almost 99% of the total frequency.It look like there is not a lot of people has an Aids.
+
+```{r}
+results<- xtabs(~infected + group, data = Scarolina)
+barchartGC(results, type = "percent")
+```
+
+Base on the barchart, the graph has almost the same result between infected and non-infected of Aids.People who took drug and placebos on non-infected side has the same result. Same goes to the people who are infected and took drugs and placebos has also the same result. There are 50-50 results in the data both from infected and non infected using the same drugs. 
+
+```{r}
+scmales<- filter (Scarolina, sex == "M")
+resultsM<- results<- xtabs(~infected + group, data = scmales)
+barchartGC(resultsM, type = "percent")
+```
+
+Base on the graph, It shows that on male data,the non-infected but taking the drug and placebo has the same result. more or less 50% of them.On the side, the infected ones who took placebos has more or less 40% of the result. However, there is a high result of the ones who took drug for Aids. It shows that almost 60% of males who took drugs that has an Aids showing the big chart.Therefore,It is a bad drug because the drug is not working for the males who took it for Aids.
 
 
+```{r}
+scfemales<- filter (Scarolina, sex == "F")
+resultsF<- results<- xtabs(~infected + group, data = scfemales)
+barchartGC(resultsF, type = "percent")
+```
 
-
+Base on the chart, The females who took drug and placebo on none infected side has the same result.Both showed more or less 50% on each on the data.Female who have aids who took drug has a results of almost 40% of the result. However, those who take placebos for aids got the heighest percent. Therefore,the placebo drug is not helping to the infected female.
