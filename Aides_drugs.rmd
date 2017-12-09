@@ -170,3 +170,11 @@ chisqtestGC(results, korea, graph = TRUE)
 ```
  
  Base on our chisqtest who has a p-value-0.0699 this is should not be ignore. We will not reject the hypothesis base n our p-value.
+ 
+ 
+###Conclusions
+ 
+I therefore conclude that these drugs are not really helping to the people with an Aids. However, there is a little changes in our data of korea on male results. But all in all, the drug and placebo doesnt give any good resutls at all except Central Africa, which have a p-value less than 0.05. 
+I would not recommend these drugs to 27 year old male and also to the 32 year old female. These are not good drugs.
+
+ 
