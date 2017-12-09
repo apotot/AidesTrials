@@ -39,14 +39,18 @@ barchart(contTable,
              
 ```
 
-Base on the chart, it is shown that there are more people of south Carolina who are non-infected are taking drugs and placebo. It looks almost 99% of the total frequency.It look like there is not a lot of people has an Aids.
+Base on the chart, it is shown that there are more people of south Carolina who are non-infected are taking drugs and placebo. It looks almost 99% of the total frequency.It look like there is not a lot of people has an Aids and drugs the drugs are working for them.
 
 ```{r}
 results<- xtabs(~infected + group, data = Scarolina)
 barchartGC(results, type = "percent")
 ```
 
-Base on the barchart, the graph has almost the same result between infected and non-infected of Aids.People who took drug and placebos on non-infected side has the same result. Same goes to the people who are infected and took drugs and placebos has also the same result. There are 50-50 results in the data both from infected and non infected using the same drugs. 
+```{r}
+rowPerc(results)
+```
+
+Base on the barchart, the graph has almost the same result between infected and non-infected of Aids.Infected people who took drug has 49.97% and 50.53% on placebos. . Same goes to the people who are non-infected the ones who took drugs got 50.02 while 49.98% in placebos.They both get the highest result.Therefore,these drug has no effect on both infected and non-infected of South Carolina. 
 
 ```{r}
 scmales<- filter (Scarolina, sex == "M")
@@ -54,7 +58,11 @@ resultsM<- results<- xtabs(~infected + group, data = scmales)
 barchartGC(resultsM, type = "percent")
 ```
 
-Base on the graph, It shows that on male data,the non-infected but taking the drug and placebo has the same result. more or less 50% of them.On the side, the infected ones who took placebos has more or less 40% of the result. However, there is a high result of the ones who took drug for Aids. It shows that almost 60% of males who took drugs that has an Aids showing the big chart.Therefore,It is a bad drug because the drug is not working for the males who took it for Aids.
+```{r}
+rowPerc(resultsM)
+```
+
+Base on the graph of male data in South Carolina it shows that the non-infected who`s taking the drug has 49.52%. and  50.48% of the people who took placebo. The infected ones who took placebos got 42.65% of the result. It shows that almost 57.35% of males who took drugs that has an Aids showing the big chart.Therefore,It is a bad drug because the drug is not working for the males who took it for Aids.
 
 
 ```{r}
@@ -62,5 +70,103 @@ scfemales<- filter (Scarolina, sex == "F")
 resultsF<- results<- xtabs(~infected + group, data = scfemales)
 barchartGC(resultsF, type = "percent")
 ```
+```{r}
+rowPerc(resultsF)
+```
 
-Base on the chart, The females who took drug and placebo on none infected side has the same result.Both showed more or less 50% on each on the data.Female who have aids who took drug has a results of almost 40% of the result. However, those who take placebos for aids got the heighest percent. Therefore,the placebo drug is not helping to the infected female.
+
+Base on the chart, The females who took drug and placebo on non-infected side has the almost the same result.50.55% use drug and 49.45%for placebo.On te other hand,SCfemales who have aids who took drug has a results of almost 38.83%  of the result. However, those who take placebos for aids got the heighest percent which is 61.17%.Therefore,the placebo drug is not helping to the infected female.but the drugs is quite helping a little bit.
+
+
+```{r}
+chisqtestGC(results,Scarolina, graph = TRUE)
+```
+
+
+Our chisqtest result has a p-value-0.0482, since the p-value is less than 0.05 we will reject the null hypothesis in favor of alternatives.
+
+
+##Central Africa
+
+```{r}
+results<- xtabs(~infected + group, data = cenAfrica)
+barchartGC(results, type = "percent")
+```
+
+```{r}
+rowPerc(results)
+```
+
+Base on the chart, it looks like there are more infected people in Central Africa using placebo but never do good it has 52.13% of the people and has 47.87% using drugs.The none infected however, has almost the same percentage, 50.10% who use drug while 49.90% took placebo. The results, these are bad drugs, it did not give any better to the population of Central Africa. 
+
+
+```{r}
+cAmales<- filter (cenAfrica, sex == "M")
+resultsM<- results<- xtabs(~infected + group, data = cAmales)
+barchartGC(resultsM, type = "percent")
+```
+
+```{r}
+rowPerc(resultsM)
+```
+
+Based on the chart,It looks like the drug and placebo doesn`t do any good to all the male population in Central Africa. The chart shown that both drugs doesn`t work on infected people, 49.47% who took drugs and 50.53% on placebo.Same result on non infected ones,50.02% on drugs and 49.98% on placebo. This drugs doesn`t do any help. It was quiet have the results between the two.It`s a bad drugs.
+
+```{r}
+cAfemales<- filter (cenAfrica, sex == "F")
+resultsF<-xtabs(~infected + group, data = cAfemales)
+barchartGC(resultsF, type = "percent")
+```
+
+```{r}
+rowPerc(resultsF)
+```
+
+Based on the chart, there are 46.55% of the entire female population of Central Africa who took drugs and 53.45% who took the placeb. Then For non infected wh also took the same drug got 50.17% and 49.83% on placebo.The results has almost the same of the results of the entire population of Central Africa who took these drugs.It still not look good. The drugs is not helping at all.
+
+```{r}
+chisqtestGC(results, cenAfrica, graph = TRUE)
+```
+
+Base on our chisqtest,our p-value has 0.5055 which is quite have some issue here. Therefore, we will not reject our null hypothesis.
+
+```{r}
+results<- xtabs(~infected + group, data = korea)
+barchartGC(results, type = "percent")
+```
+
+```{r}
+rowPerc(results)
+```
+
+our graph show that the infected people of Korea who took drugs has a result of 44.02% while 55.98% on placebo.Meanwhile, for non infected ones has a results of 50.33% on drugs while 49.67% on placebo.The drugs has a quite helping a little bit compared to placebo on infected people.
+
+```{r}
+koreamales<- filter (korea, sex == "M")
+resultsM<- xtabs(~infected + group, data = koreamales)
+barchartGC(resultsM, type = "percent")
+```
+
+```{r}
+rowPerc(resultsM)
+```
+
+It looks like the drugs is working here. Only 32.68% of the infected people compared to the ones who took placebo, they reached the highest percentage of 67.32% who took placebo that looks like it is not working for them. For non infected who took these drug, 51.25% of them using it while 48.75% using placebo.The drug however, quite helping the people who are infected that using it.
+
+```{r}
+koreafemales<- filter (korea, sex == "F")
+resultsM<- xtabs(~infected + group, data = koreafemales)
+barchartGC(resultsF, type = "percent")
+```
+
+```{r}
+rowPerc(resultsF)
+```
+
+The results is quite not good for infected ones.46.55% of female in Korea using drugs which is not really helping.Placebo is not working as well.It reaches 53.45% and its not helping at all. Meanwhile, for non infected  the drug has 50.17% population and 49.83% who took placebo. 
+
+```{r}
+chisqtestGC(results, korea, graph = TRUE)
+```
+ 
+ Base on our chisqtest who has a p-value-0.0699 this is should not be ignore. We will not reject the hypothesis base n our p-value.
